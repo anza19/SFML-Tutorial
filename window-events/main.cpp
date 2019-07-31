@@ -27,9 +27,13 @@ int main(){
 
                 //Next we check for the event when the window is resized
                 case sf::Event::Resized:
-
-
+                    //event.size gives us the screen dimension
+                    std::cout << "The width is: " << event.size.width << std::endl;
+                    std::cout << "The height is: " << event.size.height << std::endl;
+                    break;
             }
         }        
     }
+
+    return EXIT_SUCCESS;
 }   
