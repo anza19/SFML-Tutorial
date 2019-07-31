@@ -14,12 +14,9 @@ int main(){
     //Clear window on first render to make sure no pixels in the memory buffer add crap to the screen.
     window.clear();
 
-    //Making a simple rectangle
-    //For size we give a vector ==> x and y coordinate, these can suffice for width and height
-    // sf::RectangleShape player(sf::Vector2f(50.0f, 50.0f));
-
     //Making a simple circle
     sf::CircleShape player(10.0f, 30UL);
+    
     //We can fill the color for the player
     player.setFillColor(sf::Color::Green);
 
@@ -56,25 +53,19 @@ int main(){
             }
         }   
 
-        //Here we take the input from a user:
-        //Here we will move the snake to the right
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-            player.move(0.01f, 0.0f);
-        }
+        //Taking mouse user from the user
+        //sf::Mouse::isButtonPressed(sf::Mouse::Left)
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){
 
-        //Move the snake down
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-            player.move(0.0f, 0.01f);
-        }
+            //how to get mouse position
+            //to get the mouse position we use sf::Mouse::getPosition
+            //Trouble is this function takes origin from the monitor's origin, not the screen's
+            //To rectify this, we pass it as a param a WINDOW
+            //this in returns a 2D vector in integer format
+            sf::Vector2i mousePos = sf::Mouse::getPosition(window);
 
-        //Move the snake left
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-            player.move(-0.01f, 0.0f);
-        }
-
-        //Move the snake up
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-            player.move(0.0f, -0.01f);
+            //setPosition totally overwrites the original position
+            player.setPosition((float)mousePos.x , (float)mousePos.y);
         }
 
         //draw player
