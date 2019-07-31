@@ -1,5 +1,10 @@
 = Steps to compile and run:
 
+== Install
+```
+sudo apt-get install libsfml-dev
+```
+
 == Compile
 ```
 g++ -c main.cpp -I /usr/include/
