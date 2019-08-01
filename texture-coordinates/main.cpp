@@ -12,7 +12,7 @@ int main(){
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SFML Tutorial", sf::Style::Default);
 
     //make a simple circle
-    sf::RectangleShape player(sf::Vector2f(100.0f, 100.0f));
+    sf::RectangleShape player(sf::Vector2f(100.0f, 150.0f));
     
     //we set it an initial position
     player.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
@@ -22,9 +22,18 @@ int main(){
 
     //once we have created the texture object, we load it from the file system
     playerTexture.loadFromFile("tux_from_linux.png");
+    player.setTexture(&playerTexture);
+    //Returns the size of the texture in pixels
+    //It returns an unsigned vector
+    sf::Vector2u textureSize = playerTexture.getSize();
+
+    //To get one tux we divide the texture by the amount of tuxs in the image
+    //So we have the size of one tux
+    textureSize.x = textureSize.x / 3;
+    textureSize.y = textureSize.y / 9;
 
     //apply texture to player
-    player.setTexture(&playerTexture);
+    player.setTextureRect(sf::IntRect(textureSize.x * 2, textureSize.y * 8, textureSize.x, textureSize.y));
 
     //enter game while loop
     while(window.isOpen()){
