@@ -14,7 +14,7 @@ int main(){
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SFML Tutorial", sf::Style::Default);
 
     //make a simple circle
-    sf::RectangleShape player(sf::Vector2f(100.0f, 150.0f));
+    sf::RectangleShape player(sf::Vector2f(100.0f, 100.0f));
     
     //we set it an initial position
     player.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
@@ -23,10 +23,10 @@ int main(){
     sf::Texture playerTexture;
 
     //once we have created the texture object, we load it from the file system
-    playerTexture.loadFromFile("goku.gif");
+    playerTexture.loadFromFile("goku.png");
     player.setTexture(&playerTexture);
 
-    Animation animation(&playerTexture, sf::Vector2u(13, 6), 0.3f);
+    Animation animation(&playerTexture, sf::Vector2u(9, 6), 0.3f);
 
     float deltaTime = 0.0f;
 

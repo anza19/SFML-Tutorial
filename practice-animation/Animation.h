@@ -2,6 +2,7 @@
 
 class Animation{
     public:
+        
         //Constructor
         Animation(sf::Texture* texture, sf::Vector2u imageCount, float switchTime);
         
