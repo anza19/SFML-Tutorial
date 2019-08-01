@@ -1,0 +1,10 @@
+= Steps to compile and run:
+
+== Compile
+```
+g++ -c Animation.h Animation.cpp main.cpp -I /usr/include/
+g++ Animation.o main.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
+```
+== Run
+```
+ ./sfml-app 
