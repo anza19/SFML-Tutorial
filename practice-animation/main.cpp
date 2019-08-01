@@ -23,10 +23,10 @@ int main(){
     sf::Texture playerTexture;
 
     //once we have created the texture object, we load it from the file system
-    playerTexture.loadFromFile("goku.png");
+    playerTexture.loadFromFile("tux_from_linux.png");
     player.setTexture(&playerTexture);
 
-    Animation animation(&playerTexture, sf::Vector2u(9, 6), 0.3f);
+    Animation animation(&playerTexture, sf::Vector2u(3, 9), 0.3f);
 
     float deltaTime = 0.0f;
 
@@ -55,7 +55,7 @@ int main(){
 
         }
 
-        animation.Update(0, deltaTime);
+        animation.Update(8, deltaTime);
         player.setTextureRect(animation.uvRect);
 
         //clear the window after every frame

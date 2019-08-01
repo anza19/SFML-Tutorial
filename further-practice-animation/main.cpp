@@ -21,7 +21,7 @@ int main(){
 
     //create texture
     sf::Texture playerTexture;
-    playerTexture.loadFromFile("goku.png");
+    playerTexture.loadFromFile("tux_from_linux.png");
 
     //set this texture to the rectangle we have rendered on the screen
     player.setTexture(&playerTexture);
@@ -30,8 +30,8 @@ int main(){
     //for image count we provide the number of sprites in the x direction
     //And the number of sprites in the y direction
     int row = 9;
-    int col = 6;
-    Animation animation(&playerTexture, sf::Vector2u(row,col), 0.5f);
+    int col = 3;
+    Animation animation(&playerTexture, sf::Vector2u(9,3), 0.5f);
 
     //define the delta time here
     float deltaTime = 0.0f;
@@ -63,7 +63,7 @@ int main(){
         //update the animation
 
         //to change the row you want to see just change the row number in the update function call.
-        animation.Update(0, deltaTime);
+        animation.Update(8, deltaTime);
 
         //set the texture
         player.setTextureRect(animation.uvRect);
