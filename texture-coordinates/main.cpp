@@ -23,8 +23,10 @@ int main(){
     //once we have created the texture object, we load it from the file system
     playerTexture.loadFromFile("tux_from_linux.png");
     player.setTexture(&playerTexture);
+
     //Returns the size of the texture in pixels
     //It returns an unsigned vector
+    //Essentially we get a width and the height for the texture
     sf::Vector2u textureSize = playerTexture.getSize();
 
     //To get one tux we divide the texture by the amount of tuxs in the image
@@ -32,7 +34,8 @@ int main(){
     textureSize.x = textureSize.x / 3;
     textureSize.y = textureSize.y / 9;
 
-    //apply texture to player
+    //we want to display that specific tux to the window hence we use setTextureRect
+    //params we pass are the offsets for that specific tux
     player.setTextureRect(sf::IntRect(textureSize.x * 2, textureSize.y * 8, textureSize.x, textureSize.y));
 
     //enter game while loop
